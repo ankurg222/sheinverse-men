@@ -1,11 +1,9 @@
 import time
 import json
 import requests
+import os
 from typing import Dict, Set, List
 
-# ========= CONFIG =========
-BOT_TOKEN = "8582744087:AAGbTMZZ6IumbPpZ8dKoB32ns_9aCK44Z3k"
-CHAT_ID = "6233150787"
 
 BASE_API = "https://www.sheinindia.in/api/category/sverse-5939-37961"
 POLL_INTERVAL_SEC = 10  # tune carefully for speed vs rate-limit
@@ -14,8 +12,14 @@ STATE_FILE = "sheinverse_state.json"
 # ==========================
 
 
-def send_telegram_message(text: str) -> None:
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+def send_telegram_message(text: str)-> None:
+    bot_token = os.getenv("BOT_TOKEN")  # 🔥 From Railway env
+    chat_id = os.getenv("CHAT_ID")      # 🔥 From Railway env    
+    if not bot_token or not chat_id:
+        print("Missing BOT_TOKEN or CHAT_ID env vars!")
+        return
+        
+    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     payload = {
         "chat_id": CHAT_ID,
         "text": text,
