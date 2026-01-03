@@ -63,7 +63,7 @@ def fetch_page(page: int = 0) -> Dict:
     Uses currentPage query param used by the site's pagination.
     """
     params = {
-        "query": ":newn:genderfilter:Men",
+        "query": ":relevence:genderfilter:Men",
         "currentPage": page,
     }
     r = requests.get(BASE_API, params=params, timeout=5)
