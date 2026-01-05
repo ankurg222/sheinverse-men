@@ -28,7 +28,7 @@ def send_telegram_message(text: str) -> None:
         "disable_web_page_preview": False,
     }
         try:
-            requests.post(url, json=payload, timeout=5)
+            requests.post(url, json=payload, timeout=3)
         except Exception as e:
             print("Telegram error:", e)
 
