@@ -107,8 +107,9 @@ def product_to_message(prod: Dict, event_type: str = "NEW") -> tuple[str, str]:
     link = f"https://www.sheinindia.in{url_path}" if url_path.startswith("/") else url_path
 
     caption = (
-        f"<b>{price}</b>"
-        f"{link}\n"       )
+        f"<b>{price}</b> "
+        f'<a href="{link}">Open</a>'
+        )
 
     images = prod.get("images") or []
     photo_url = images[0]["url"] if images else None
