@@ -148,7 +148,7 @@ def main_loop():
         if current_total_results > last_total_results:
             new_count = current_total_results - last_total_results
             summary_msg = summary_alert_message(current_total_results, new_count)
-            send_telegram_message(summary_msg)
+            send_telegram_photo(summary_msg)
             print(f"📊 SUMMARY: {last_total_results} → {current_total_results} (+{new_count})")
             last_total_results = current_total_results
 
