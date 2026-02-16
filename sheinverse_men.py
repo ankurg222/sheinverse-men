@@ -6,7 +6,7 @@ from typing import Dict, Set, List
 
 # ========= CONFIG =========
 
-BASE_API = "https://www.sheinindia.in/api/category/sverse-5939-37961"
+BASE_API = "https://www.ajio.com/api/category/sverse-5939-37961"
 POLL_INTERVAL_SEC = 8  # tune carefully for speed vs rate-limit
 
 STATE_FILE = "sheinverse_state.json"
